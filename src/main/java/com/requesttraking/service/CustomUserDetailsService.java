@@ -2,7 +2,6 @@ package com.requesttraking.service;
 
 import com.requesttraking.entity.Role;
 import com.requesttraking.entity.User;
-import com.requesttraking.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
