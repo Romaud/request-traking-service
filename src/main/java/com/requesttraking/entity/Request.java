@@ -22,13 +22,12 @@ public class Request {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private String assigneeId;
+    private Long assigneeId;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @Column(name = "user_id")
     private Long userId;
 
     @Override
@@ -37,9 +36,10 @@ public class Request {
                 "id=" + id +
                 ", text='" + text + '\'' +
                 ", status=" + status +
-                ", assigneeId='" + assigneeId + '\'' +
+                ", assigneeId=" + assigneeId +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", userId=" + userId +
                 '}';
     }
 }

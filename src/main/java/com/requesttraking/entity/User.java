@@ -21,7 +21,6 @@ public class User {
     private String password;
 
     @ManyToMany
-    @JsonIgnore
     private Set<Role> roles;
 
     @Override
