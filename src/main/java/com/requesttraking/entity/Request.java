@@ -29,17 +29,4 @@ public class Request {
     private LocalDateTime updatedAt = LocalDateTime.now();
 
     private Long userId;
-
-    @Override
-    public String toString() {
-        return "Request{" +
-                "id=" + id +
-                ", text='" + text + '\'' +
-                ", status=" + status +
-                ", assigneeId=" + assigneeId +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", userId=" + userId +
-                '}';
-    }
 }

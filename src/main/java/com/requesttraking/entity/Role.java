@@ -24,12 +24,4 @@ public class Role {
     @JsonIgnore
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", role=" + role +
-                '}';
-    }
 }

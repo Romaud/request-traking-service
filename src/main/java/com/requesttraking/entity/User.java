@@ -21,13 +21,4 @@ public class User {
 
     @ManyToMany
     private Set<Role> roles;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }
