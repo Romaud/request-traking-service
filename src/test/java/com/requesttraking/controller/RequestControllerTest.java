@@ -272,7 +272,7 @@ class RequestControllerTest {
         UpdateRqDto request = new UpdateRqDto(1L);
         request.setText("Test Request");
         request.setAssigneeId(null);
-        request.setRqId(3L);
+        request.setId(3L);
 
         mockMvc.perform(put("/api/requests/edit")
                         .contentType(MediaType.APPLICATION_JSON)
