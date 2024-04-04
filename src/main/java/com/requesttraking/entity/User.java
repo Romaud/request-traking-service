@@ -1,6 +1,7 @@
 package com.requesttraking.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +22,6 @@ public class User {
     private String password;
 
     @ManyToMany
+    @ToString.Exclude
     private Set<Role> roles;
 }
