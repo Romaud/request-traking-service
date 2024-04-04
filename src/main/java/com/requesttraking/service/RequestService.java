@@ -73,7 +73,7 @@ public class RequestService {
 
     public Request save(CreateRqDto dto) {
         User user = userService.getByUsername(getAuthenticatedName());
-        dto.setUserId(user.getId());
+        dto.setId(user.getId());
         return requestRepository.save(dto.toEntity());
     }
 
