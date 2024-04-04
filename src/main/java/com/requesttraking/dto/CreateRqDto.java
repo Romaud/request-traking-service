@@ -28,11 +28,11 @@ public class CreateRqDto {
     public Request toEntity() {
         return Request.builder()
                 .text(text)
+                .userId(userId)
                 .status(Status.DRAFT)
                 .assigneeId(assigneeId)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
-                .userId(userId)
                 .build();
     }
 }
