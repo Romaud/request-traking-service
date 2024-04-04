@@ -27,6 +27,7 @@ public class CreateRqDto {
 
     public Request toEntity() {
         return Request.builder()
+                .userId(userId)
                 .text(text)
                 .userId(userId)
                 .status(Status.DRAFT)
