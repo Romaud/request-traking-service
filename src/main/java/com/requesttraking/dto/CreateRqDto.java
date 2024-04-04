@@ -29,7 +29,6 @@ public class CreateRqDto {
         return Request.builder()
                 .text(text)
                 .status(Status.DRAFT)
-                .userId(rqId)
                 .assigneeId(assigneeId)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
