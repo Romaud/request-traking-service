@@ -3,14 +3,17 @@ package com.requesttraking.controller;
 import com.requesttraking.dto.CreateRqDto;
 import com.requesttraking.dto.UpdateRqDto;
 import com.requesttraking.entity.Request;
+import com.requesttraking.service.JasperReportsService;
 import com.requesttraking.service.RequestService;
 import lombok.AllArgsConstructor;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -18,10 +21,11 @@ import java.util.List;
 @RequestMapping("/api/requests")
 public class RequestController {
     private RequestService requestService;
+    private JasperReportsService jasperReportsService;
 
     @PreAuthorize("hasRole('ROLE_OPERATOR')")
     @GetMapping
-    public ResponseEntity<List<Request>> getSubmittedRequests(@RequestParam(defaultValue = "0") Integer page,
+    public ResponseEntity<List<Request>> getSubmittedRe127quests(@RequestParam(defaultValue = "0") Integer page,
                                                               @RequestParam(defaultValue = "5") Integer size,
                                                               @RequestParam(defaultValue = "asc") String direction) {
         Page<Request> requests = requestService.getSubmittedRequests(page, size, direction);
@@ -93,5 +97,10 @@ public class RequestController {
     public ResponseEntity<Request> rejectRequest(@PathVariable Long id) {
         Request request = requestService.reject(id);
         return ResponseEntity.ok(request);
+    }
+
+    @GetMapping("/export")
+    public ResponseEntity<?> export() throws JRException {
+        return ResponseEntity.ok(jasperReportsService.exportReport());
     }
 }

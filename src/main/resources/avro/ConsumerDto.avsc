@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "ConsumerDto",
+  "namespace": "com.requesttraking.kafka.response",
+  "fields": [
+    {"name": "id", "type": ["null", "int"]},
+    {"name": "username", "type": ["null", "string"]},
+    {
+      "name": "errors",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "Error",
+          "fields": [
+            {"name": "code", "type": ["null", "string"]},
+            {"name": "message", "type": ["null", "string"]}
+          ]
+        }
+      }
+    }
+  ]
+}
