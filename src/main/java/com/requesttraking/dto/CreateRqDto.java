@@ -23,16 +23,16 @@ public class CreateRqDto {
     private Long assigneeId;
 
     @NotNull
-    private Long userId;
+    private Long rqId;
 
     public Request toEntity() {
         return Request.builder()
                 .text(text)
                 .status(Status.DRAFT)
+                .userId(rqId)
                 .assigneeId(assigneeId)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
-                .userId(userId)
                 .build();
     }
 
