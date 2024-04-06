@@ -23,11 +23,11 @@ public class CreateRqDto {
     private Long assigneeId;
 
     @NotNull
-    private Long userId;
+    private Long aLong;
 
     public Request toEntity() {
         return Request.builder()
-                .id(userId)
+                .id(aLong)
                 .text(text)
                 .status(Status.DRAFT)
                 .assigneeId(assigneeId)
