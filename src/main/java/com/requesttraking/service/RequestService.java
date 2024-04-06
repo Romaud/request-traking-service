@@ -73,12 +73,12 @@ public class RequestService {
 
     public Request save(CreateRqDto dto) {
         User user = userService.getByUsername(getAuthenticatedName());
-        dto.setUserId(user.getId());
+        dto.setaLong(user.getId());
         return requestRepository.save(dto.toEntity());
     }
 
     public Request edit(UpdateRqDto dto) {
-        Request rqFromDb = getById(dto.getUserId());
+        Request rqFromDb = getById(dto.getaLong());
         Request rqForSave = dto.toEntity();
         if (rqFromDb.getStatus() != Status.DRAFT) {
             throw new IllegalArgumentException("Редактировать можно только заявки в статусе 'Черновик'");
